@@ -85,13 +85,15 @@ JWT_SECRET=your_complex_secret_key
 JWT_EXPIRES_IN=7d
 NODE_ENV=development
 
-backend installation 
+For backend installation run this in root folder:
+```env
 cd backend
 npm install
 node seed.js  # Primes the database with professional test data
 npm start
 
-frontend installation
+For frontend installation run this in root folder:
+```env
 cd frontend
 npm install
 npm run dev
