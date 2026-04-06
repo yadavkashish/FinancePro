@@ -7,30 +7,32 @@ exports.signToken = (id) => {
   });
 };
 
+
+
 exports.createSendToken = (user, statusCode, res) => {
   const token = exports.signToken(user._id);
 
   const cookieOptions = {
     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-    httpOnly: true, // Defense against XSS
-    // ✅ PRODUCTION SETTINGS: Required for Vercel/Cross-site deployment
-    secure: true, 
-    sameSite: 'none', 
+    httpOnly: true,
+    secure: true,      // Must be true for SameSite: none
+    sameSite: 'none',  // Required for cross-site
+    path: '/',         // ✅ Explicitly set path to root
   };
 
-  // Switch back to lax for local development if needed
+  // ✅ Only disable security if we are TRULY on a local dev machine
+  // If NODE_ENV is undefined on Render, it might be skipping the secure settings
   if (process.env.NODE_ENV === 'development') {
     cookieOptions.secure = false;
     cookieOptions.sameSite = 'lax';
   }
 
   user.password = undefined;
-
   res.cookie('jwt', token, cookieOptions);
 
   res.status(statusCode).json({
     status: 'success',
-    token, // We send token in body too as a backup
+    token, 
     data: { user },
   });
 };
