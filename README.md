@@ -72,28 +72,32 @@ To ensure the system remains manageable, the backend includes custom logic that:
 
 ## ⚙️ Setup & Installation
 
-### **1. Prerequisites**
-* Node.js (v20+)
-* MongoDB Instance (Local or Atlas)
+### 1. Prerequisites
+* **Node.js**: (v20+)
+* **MongoDB**: Instance (Local or Atlas)
 
-### **2. Environment Configuration**
-Create a `.env` file in the `/backend` folder:
+### 2. Environment Configuration
+Create a file named `.env` in the `/backend` folder and populate it with the following:
+
 ```env
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_complex_secret_key
 JWT_EXPIRES_IN=7d
 NODE_ENV=development
+3. Backend Installation
+Open your terminal and run the following commands to get the server running:
 
-For backend installation run this in root folder:
-```env
+Bash
 cd backend
 npm install
 node seed.js  # Primes the database with professional test data
 npm start
+4. Frontend Installation
+Open a new terminal window/tab and run the following commands:
 
-For frontend installation run this in root folder:
-```env
+Bash
 cd frontend
 npm install
 npm run dev
+Developed by Kashish Yadav. Computer Science & Information Technology | KIET Group of Institutions
