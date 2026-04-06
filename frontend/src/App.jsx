@@ -7,7 +7,7 @@ import Transactions from './pages/Transactions';
 import AdminPanel from './pages/AdminPanel';
 import { Signup, Login, Unauthorized } from './pages/AuthPages';
 
-export const API_URL = 'http://localhost:5000/api/v1';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
 axios.defaults.withCredentials = true; 
 
 const AuthContext = createContext({ user: null, login: () => {}, logout: () => {}, isLoading: true });
