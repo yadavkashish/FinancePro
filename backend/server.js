@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 // ✅ ENHANCED CORS: Validated for Vercel + Localhost
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://finance-pro-sepia.vercel.app'],
+  origin: ['http://localhost:5173', 'https://finance-pro-sepia.vercel.app','https://finance-m7gxtvdub-kashish-yadavs-projects.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
